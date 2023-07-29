@@ -148,6 +148,25 @@ local function formatLong(value: number): string
     end
 end
 
+--[=[
+    @param value<string|number> The value to convert
+    @param options<Options> The options to use
+
+    Convert a string to milliseconds
+    ```lua
+    ms("1d") -- 86400000
+    ```
+
+    Convert milliseconds to a formatted string
+    ```lua
+    ms(86400000) -- 1d
+    ```
+
+    Convert milliseconds to a formatted string with long format
+    ```lua
+    ms(86400000, { long = true }) -- 1 day
+    ```
+]=]
 return function(value: string | number, options: Options)
     local valueType = type(value)
     local valueNum = tonumber(value)
