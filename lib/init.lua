@@ -58,8 +58,6 @@ local Units = {
     }
 }
 
-local STRING_PATTERN = "(%d+)(%a+)"
-
 type Options = {
     long: boolean?
 }
@@ -76,7 +74,7 @@ local function parse(value: string)
     local totalMs = 0
 
     for stringGroup in value:gmatch("(%d+%a+)") do
-        local record = { stringGroup:match(STRING_PATTERN) } 
+        local record = { stringGroup:match("(%d+)(%a+)") } 
         local num, unit = tonumber(record[1]), record[2]
 
         assert(num, "Invalid number")
